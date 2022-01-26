@@ -1,14 +1,37 @@
-const container = document.querySelector('.container')
-
-
-
+const container = document.querySelector('.container');
 let numbSquares = 16;
 
-for(let i = 0; i < numbSquares; i++){
-    const square = document.createElement('div');
-    square.classList = 'square'
-    square.setAttribute('style',`width:${600/numbSquares}px;height:${600/numbSquares}px`);
-    //square.setAttribute('style',`height:"${600/numbSquares}"`);
-    container.appendChild(square);
+function getRow(){
+    for(let i = 0; i < numbSquares; i++){
+        const newSquare = document.createElement('div');
+        newSquare.classList = 'square'
+        newSquare.setAttribute('style',`width:${600/numbSquares}px;height:${600/numbSquares}px`);
+        container.appendChild(newSquare);
+    }
 }
+
+function getGrid(){
+    for(let j =0; j < numbSquares; j++){
+        getRow();
+    }
+}
+
+getGrid();
+
+const squares = document.querySelectorAll('.square');
+
+squares.forEach((square)=>{
+
+    square.addEventListener('mouseover', (e)=>{
+        let randoR = Math.floor((Math.random())*256);
+        let randomG = Math.floor((Math.random())*256);
+        let randomB = Math.floor((Math.random())*256);
+
+        e.target.style.backgroundColor = `rgb(${randoR},${randomG},${randomB})`;
+
+    });
+
+});
+
+
 
