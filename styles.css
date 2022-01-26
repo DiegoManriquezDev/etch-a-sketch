@@ -1,0 +1,16 @@
+.web-container{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: aquamarine;
+    width: 600px;
+    height: 600px;
+}
+
+.square{
+    background-color: burlywood;
+}
